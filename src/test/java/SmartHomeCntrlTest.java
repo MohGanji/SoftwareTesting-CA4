@@ -83,7 +83,18 @@ public class SmartHomeCntrlTest {
     }
 
     @Test
-    public void smoke_test7() {  // FF
+    public void smoke_test7() {  // FFF
+        SecurityConfig securityConfig = new SecurityConfig(1, SecurityMode.Thief_Mode);
+        EnvState envState = new EnvState(0, 0, 0);
+        SmartHomeController smartHomeController =
+                new SmartHomeController(securityConfig, envState, Time.Night);
+        smartHomeController.smoke(2);
+        assertTrue(new HomeState(Windows.Close, Doors.Close, Lights.Off, Alarm.Off).equals
+                (smartHomeController.getHomeState()));
+    }
+
+    @Test
+    public void smoke_test8() {  // FF
         SecurityConfig securityConfig = new SecurityConfig(1, SecurityMode.Vacation_Mode);
         EnvState envState = new EnvState(0, 0, 0);
         SmartHomeController smartHomeController =
@@ -96,7 +107,7 @@ public class SmartHomeCntrlTest {
     // part 2
 
     @Test
-    public void smoke_test8() {  // FTTFT
+    public void smoke_test9() {  // FTTFT
         SecurityConfig securityConfig = new SecurityConfig(4, SecurityMode.Thief_Mode);
         EnvState envState = new EnvState(0, 0, 0);
         SmartHomeController smartHomeController =
@@ -107,7 +118,7 @@ public class SmartHomeCntrlTest {
     }
 
     @Test
-    public void smoke_test9() {  // FFTFT
+    public void smoke_test10() {  // FFTFT
         SecurityConfig securityConfig = new SecurityConfig(4, SecurityMode.Vacation_Mode);
         EnvState envState = new EnvState(0, 0, 0);
         SmartHomeController smartHomeController =
@@ -118,7 +129,7 @@ public class SmartHomeCntrlTest {
     }
 
     @Test
-    public void smoke_test10(){  // FTFFT
+    public void smoke_test11(){  // FTFFT
         SecurityConfig securityConfig = new SecurityConfig(2, SecurityMode.Thief_Mode);
         EnvState envState = new EnvState(0, 0, 0);
         SmartHomeController smartHomeController =
@@ -129,7 +140,7 @@ public class SmartHomeCntrlTest {
     }
 
     @Test
-    public void smoke_test11(){  // FTTTT
+    public void smoke_test12(){  // FTTTT
         SecurityConfig securityConfig = new SecurityConfig(4, SecurityMode.Thief_Mode);
         EnvState envState = new EnvState(0, 0, 0);
         SmartHomeController smartHomeController =
@@ -140,7 +151,7 @@ public class SmartHomeCntrlTest {
     }
 
     @Test
-    public void smoke_test12() {  // FTTFF
+    public void smoke_test13() {  // FTTFF
         SecurityConfig securityConfig = new SecurityConfig(4, SecurityMode.Thief_Mode);
         EnvState envState = new EnvState(0, 0, 0);
         SmartHomeController smartHomeController =
@@ -150,8 +161,10 @@ public class SmartHomeCntrlTest {
                 (smartHomeController.getHomeState()));
     }
 
+    // part 3
+
     @Test
-    public void smoke_test13() {  // T
+    public void smoke_test14() {  // T
         SecurityConfig securityConfig = new SecurityConfig(0, SecurityMode.Vacation_Mode);
         EnvState envState = new EnvState(0, 0, 0);
         SmartHomeController smartHomeController =
@@ -162,7 +175,7 @@ public class SmartHomeCntrlTest {
     }
 
     @Test
-    public void smoke_test14() {  // F
+    public void smoke_test15() {  // F
         SecurityConfig securityConfig = new SecurityConfig(0, SecurityMode.Normal_Mode);
         EnvState envState = new EnvState(0, 0, 0);
         SmartHomeController smartHomeController =
